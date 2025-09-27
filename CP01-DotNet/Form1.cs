@@ -149,7 +149,13 @@ public partial class Form1 : Form
 
     private void btnDecimalPoint_Click(object sender, EventArgs e)
     {
-        
+        if (!txtDisplay.Text.Contains('.'))
+        { 
+            if (String.IsNullOrEmpty(txtDisplay.Text))
+            txtDisplay.Text += "0.";
+        else
+                txtDisplay.Text += ".";
+        } 
     }
 
     private void btnEquals_Click(object sender, EventArgs e)

@@ -66,6 +66,8 @@ partial class Form1
         // label1
         // 
         label1.AutoSize = true;
+        label1.BackColor = SystemColors.Highlight;
+        label1.ForeColor = Color.Yellow;
         label1.Location = new Point(33, 15);
         label1.Name = "label1";
         label1.Size = new Size(68, 30);

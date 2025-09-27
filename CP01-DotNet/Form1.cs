@@ -1,8 +1,12 @@
+using System.Linq.Expressions;
+
 namespace CP01_DotNet;
 
 public partial class Form1 : Form
 {
     private Operation operationSelected{ get; set; }
+    private float Result { get; set; }
+    private float Value { get; set; }
     private enum Operation
     {
         Add,
@@ -74,41 +78,49 @@ public partial class Form1 : Form
 
     private void btnClear_Click(object sender, EventArgs e)
     {
-
+        txtDisplay.Text = "";
     }
 
     private void btnExponent_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.Exponent;
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnDivide_Click(object sender, EventArgs e)
     {
         operationSelected = Operation.Divide;
-        txtDisplay.Text += "";
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnMultiply_Click(object sender, EventArgs e)
     {
         operationSelected = Operation.Multiply;
-        txtDisplay.Text += "";
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnSubtract_Click(object sender, EventArgs e)
     {
         operationSelected = Operation.Subtract;
-        txtDisplay.Text += "";
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnSquareRoot_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.SquareRoot;
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
         operationSelected = Operation.Add;
-        txtDisplay.Text += "";
+        Value = Convert.ToSingle(txtDisplay.Text);
+        txtDisplay.Text = "";
     }
 
     private void btnDecimalPoint_Click(object sender, EventArgs e)
@@ -118,6 +130,27 @@ public partial class Form1 : Form
 
     private void btnEquals_Click(object sender, EventArgs e)
     {
-
+        switch (operationSelected)
+        {
+            case Operation.Add:
+                Result = Value + Convert.ToSingle(txtDisplay.Text); 
+                break;
+            case Operation.Subtract:
+                Result = Value - Convert.ToSingle(txtDisplay.Text);
+                break;
+            case Operation.Multiply:
+                Result = Value * Convert.ToSingle(txtDisplay.Text);
+                break;
+            case Operation.Divide:
+                Result = Value / Convert.ToSingle(txtDisplay.Text);
+                break;
+            case Operation.Exponent:
+                Result = MathF.Pow(Value, Convert.ToSingle(txtDisplay.Text));
+                break;
+            case Operation.SquareRoot:
+                Result = MathF.Sqrt(Convert.ToSingle(txtDisplay.Text));
+                break;
+        }
+        txtDisplay.Text = Result.ToString();
     }
 }

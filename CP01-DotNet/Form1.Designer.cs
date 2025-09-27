@@ -28,39 +28,38 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        textBox1 = new TextBox();
+        txtDisplay = new TextBox();
         label1 = new Label();
-        button1 = new Button();
-        button2 = new Button();
-        button3 = new Button();
-        button4 = new Button();
-        button5 = new Button();
-        button6 = new Button();
-        button7 = new Button();
-        button8 = new Button();
-        button9 = new Button();
-        button10 = new Button();
-        button11 = new Button();
-        button12 = new Button();
-        button13 = new Button();
-        button14 = new Button();
+        btn1 = new Button();
+        btn2 = new Button();
+        btn3 = new Button();
+        btnClear = new Button();
+        btn4 = new Button();
+        btn5 = new Button();
+        btn6 = new Button();
+        btn7 = new Button();
+        btn9 = new Button();
+        btn8 = new Button();
+        btnDivide = new Button();
+        btnMultiply = new Button();
+        btnSubtract = new Button();
+        btnAdd = new Button();
         btn0 = new Button();
-        button17 = new Button();
-        button15 = new Button();
-        button18 = new Button();
-        button19 = new Button();
-        button20 = new Button();
+        btnDecimalPoint = new Button();
+        btnSquareRoot = new Button();
+        btnExponent = new Button();
+        btnEquals = new Button();
         SuspendLayout();
         // 
-        // textBox1
+        // txtDisplay
         // 
-        textBox1.Location = new Point(33, 12);
-        textBox1.Name = "textBox1";
-        textBox1.ReadOnly = true;
-        textBox1.Size = new Size(214, 35);
-        textBox1.TabIndex = 0;
-        textBox1.TextAlign = HorizontalAlignment.Right;
-        textBox1.TextChanged += textBox1_TextChanged;
+        txtDisplay.Location = new Point(33, 12);
+        txtDisplay.Name = "txtDisplay";
+        txtDisplay.ReadOnly = true;
+        txtDisplay.Size = new Size(214, 35);
+        txtDisplay.TabIndex = 0;
+        txtDisplay.TextAlign = HorizontalAlignment.Right;
+        txtDisplay.TextChanged += textBox1_TextChanged;
         // 
         // label1
         // 
@@ -71,173 +70,187 @@ partial class Form1
         label1.TabIndex = 1;
         label1.Text = "label1";
         // 
-        // button1
+        // btn1
         // 
-        button1.BackColor = SystemColors.ActiveCaptionText;
-        button1.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button1.ForeColor = Color.Yellow;
-        button1.Location = new Point(33, 370);
-        button1.Name = "button1";
-        button1.Size = new Size(49, 70);
-        button1.TabIndex = 2;
-        button1.Text = "1";
-        button1.UseVisualStyleBackColor = false;
+        btn1.BackColor = SystemColors.ActiveCaptionText;
+        btn1.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn1.ForeColor = Color.Yellow;
+        btn1.Location = new Point(33, 370);
+        btn1.Name = "btn1";
+        btn1.Size = new Size(49, 70);
+        btn1.TabIndex = 2;
+        btn1.Text = "1";
+        btn1.UseVisualStyleBackColor = false;
+        btn1.Click += btn1_Click;
         // 
-        // button2
+        // btn2
         // 
-        button2.BackColor = SystemColors.ActiveCaptionText;
-        button2.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button2.ForeColor = Color.Yellow;
-        button2.Location = new Point(88, 370);
-        button2.Name = "button2";
-        button2.Size = new Size(49, 70);
-        button2.TabIndex = 3;
-        button2.Text = "2";
-        button2.UseVisualStyleBackColor = false;
+        btn2.BackColor = SystemColors.ActiveCaptionText;
+        btn2.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn2.ForeColor = Color.Yellow;
+        btn2.Location = new Point(88, 370);
+        btn2.Name = "btn2";
+        btn2.Size = new Size(49, 70);
+        btn2.TabIndex = 3;
+        btn2.Text = "2";
+        btn2.UseVisualStyleBackColor = false;
+        btn2.Click += btn2_Click;
         // 
-        // button3
+        // btn3
         // 
-        button3.BackColor = SystemColors.ActiveCaptionText;
-        button3.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button3.ForeColor = Color.Yellow;
-        button3.Location = new Point(143, 370);
-        button3.Name = "button3";
-        button3.Size = new Size(49, 70);
-        button3.TabIndex = 4;
-        button3.Text = "3";
-        button3.UseVisualStyleBackColor = false;
+        btn3.BackColor = SystemColors.ActiveCaptionText;
+        btn3.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn3.ForeColor = Color.Yellow;
+        btn3.Location = new Point(143, 370);
+        btn3.Name = "btn3";
+        btn3.Size = new Size(49, 70);
+        btn3.TabIndex = 4;
+        btn3.Text = "3";
+        btn3.UseVisualStyleBackColor = false;
+        btn3.Click += btn3_Click;
         // 
-        // button4
+        // btnClear
         // 
-        button4.BackColor = SystemColors.ActiveCaptionText;
-        button4.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button4.ForeColor = Color.Yellow;
-        button4.Location = new Point(143, 66);
-        button4.Name = "button4";
-        button4.Size = new Size(104, 70);
-        button4.TabIndex = 5;
-        button4.Text = "C";
-        button4.UseVisualStyleBackColor = false;
+        btnClear.BackColor = SystemColors.ActiveCaptionText;
+        btnClear.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnClear.ForeColor = Color.Yellow;
+        btnClear.Location = new Point(143, 66);
+        btnClear.Name = "btnClear";
+        btnClear.Size = new Size(104, 70);
+        btnClear.TabIndex = 5;
+        btnClear.Text = "C";
+        btnClear.UseVisualStyleBackColor = false;
+        btnClear.Click += btnClear_Click;
         // 
-        // button5
+        // btn4
         // 
-        button5.BackColor = SystemColors.ActiveCaptionText;
-        button5.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button5.ForeColor = Color.Yellow;
-        button5.Location = new Point(33, 294);
-        button5.Name = "button5";
-        button5.Size = new Size(49, 70);
-        button5.TabIndex = 6;
-        button5.Text = "4";
-        button5.UseVisualStyleBackColor = false;
+        btn4.BackColor = SystemColors.ActiveCaptionText;
+        btn4.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn4.ForeColor = Color.Yellow;
+        btn4.Location = new Point(33, 294);
+        btn4.Name = "btn4";
+        btn4.Size = new Size(49, 70);
+        btn4.TabIndex = 6;
+        btn4.Text = "4";
+        btn4.UseVisualStyleBackColor = false;
+        btn4.Click += btn4_Click;
         // 
-        // button6
+        // btn5
         // 
-        button6.BackColor = SystemColors.ActiveCaptionText;
-        button6.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button6.ForeColor = Color.Yellow;
-        button6.Location = new Point(88, 294);
-        button6.Name = "button6";
-        button6.Size = new Size(49, 70);
-        button6.TabIndex = 7;
-        button6.Text = "5";
-        button6.UseVisualStyleBackColor = false;
+        btn5.BackColor = SystemColors.ActiveCaptionText;
+        btn5.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn5.ForeColor = Color.Yellow;
+        btn5.Location = new Point(88, 294);
+        btn5.Name = "btn5";
+        btn5.Size = new Size(49, 70);
+        btn5.TabIndex = 7;
+        btn5.Text = "5";
+        btn5.UseVisualStyleBackColor = false;
+        btn5.Click += btn5_Click;
         // 
-        // button7
+        // btn6
         // 
-        button7.BackColor = SystemColors.ActiveCaptionText;
-        button7.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button7.ForeColor = Color.Yellow;
-        button7.Location = new Point(143, 294);
-        button7.Name = "button7";
-        button7.Size = new Size(49, 70);
-        button7.TabIndex = 8;
-        button7.Text = "6";
-        button7.UseVisualStyleBackColor = false;
+        btn6.BackColor = SystemColors.ActiveCaptionText;
+        btn6.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn6.ForeColor = Color.Yellow;
+        btn6.Location = new Point(143, 294);
+        btn6.Name = "btn6";
+        btn6.Size = new Size(49, 70);
+        btn6.TabIndex = 8;
+        btn6.Text = "6";
+        btn6.UseVisualStyleBackColor = false;
+        btn6.Click += btn6_Click;
         // 
-        // button8
+        // btn7
         // 
-        button8.BackColor = SystemColors.ActiveCaptionText;
-        button8.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button8.ForeColor = Color.Yellow;
-        button8.Location = new Point(33, 218);
-        button8.Name = "button8";
-        button8.Size = new Size(49, 70);
-        button8.TabIndex = 9;
-        button8.Text = "7";
-        button8.UseVisualStyleBackColor = false;
+        btn7.BackColor = SystemColors.ActiveCaptionText;
+        btn7.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn7.ForeColor = Color.Yellow;
+        btn7.Location = new Point(33, 218);
+        btn7.Name = "btn7";
+        btn7.Size = new Size(49, 70);
+        btn7.TabIndex = 9;
+        btn7.Text = "7";
+        btn7.UseVisualStyleBackColor = false;
+        btn7.Click += btn7_Click;
         // 
-        // button9
+        // btn9
         // 
-        button9.BackColor = SystemColors.ActiveCaptionText;
-        button9.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button9.ForeColor = Color.Yellow;
-        button9.Location = new Point(143, 218);
-        button9.Name = "button9";
-        button9.Size = new Size(49, 70);
-        button9.TabIndex = 10;
-        button9.Text = "9";
-        button9.UseVisualStyleBackColor = false;
+        btn9.BackColor = SystemColors.ActiveCaptionText;
+        btn9.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn9.ForeColor = Color.Yellow;
+        btn9.Location = new Point(143, 218);
+        btn9.Name = "btn9";
+        btn9.Size = new Size(49, 70);
+        btn9.TabIndex = 10;
+        btn9.Text = "9";
+        btn9.UseVisualStyleBackColor = false;
+        btn9.Click += btn9_Click;
         // 
-        // button10
+        // btn8
         // 
-        button10.BackColor = SystemColors.ActiveCaptionText;
-        button10.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button10.ForeColor = Color.Yellow;
-        button10.Location = new Point(88, 218);
-        button10.Name = "button10";
-        button10.Size = new Size(49, 70);
-        button10.TabIndex = 11;
-        button10.Text = "8";
-        button10.UseVisualStyleBackColor = false;
+        btn8.BackColor = SystemColors.ActiveCaptionText;
+        btn8.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btn8.ForeColor = Color.Yellow;
+        btn8.Location = new Point(88, 218);
+        btn8.Name = "btn8";
+        btn8.Size = new Size(49, 70);
+        btn8.TabIndex = 11;
+        btn8.Text = "8";
+        btn8.UseVisualStyleBackColor = false;
+        btn8.Click += btn8_Click;
         // 
-        // button11
+        // btnDivide
         // 
-        button11.BackColor = SystemColors.ActiveCaptionText;
-        button11.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button11.ForeColor = Color.Yellow;
-        button11.Location = new Point(33, 142);
-        button11.Name = "button11";
-        button11.Size = new Size(49, 70);
-        button11.TabIndex = 12;
-        button11.Text = "/";
-        button11.UseVisualStyleBackColor = false;
+        btnDivide.BackColor = SystemColors.ActiveCaptionText;
+        btnDivide.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnDivide.ForeColor = Color.Yellow;
+        btnDivide.Location = new Point(33, 142);
+        btnDivide.Name = "btnDivide";
+        btnDivide.Size = new Size(49, 70);
+        btnDivide.TabIndex = 12;
+        btnDivide.Text = "/";
+        btnDivide.UseVisualStyleBackColor = false;
+        btnDivide.Click += btnDivide_Click;
         // 
-        // button12
+        // btnMultiply
         // 
-        button12.BackColor = SystemColors.ActiveCaptionText;
-        button12.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button12.ForeColor = Color.Yellow;
-        button12.Location = new Point(88, 142);
-        button12.Name = "button12";
-        button12.Size = new Size(49, 70);
-        button12.TabIndex = 13;
-        button12.Text = "*";
-        button12.UseVisualStyleBackColor = false;
+        btnMultiply.BackColor = SystemColors.ActiveCaptionText;
+        btnMultiply.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnMultiply.ForeColor = Color.Yellow;
+        btnMultiply.Location = new Point(88, 142);
+        btnMultiply.Name = "btnMultiply";
+        btnMultiply.Size = new Size(49, 70);
+        btnMultiply.TabIndex = 13;
+        btnMultiply.Text = "*";
+        btnMultiply.UseVisualStyleBackColor = false;
+        btnMultiply.Click += btnMultiply_Click;
         // 
-        // button13
+        // btnSubtract
         // 
-        button13.BackColor = SystemColors.ActiveCaptionText;
-        button13.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button13.ForeColor = Color.Yellow;
-        button13.Location = new Point(143, 142);
-        button13.Name = "button13";
-        button13.Size = new Size(49, 70);
-        button13.TabIndex = 14;
-        button13.Text = "-";
-        button13.UseVisualStyleBackColor = false;
+        btnSubtract.BackColor = SystemColors.ActiveCaptionText;
+        btnSubtract.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnSubtract.ForeColor = Color.Yellow;
+        btnSubtract.Location = new Point(143, 142);
+        btnSubtract.Name = "btnSubtract";
+        btnSubtract.Size = new Size(49, 70);
+        btnSubtract.TabIndex = 14;
+        btnSubtract.Text = "-";
+        btnSubtract.UseVisualStyleBackColor = false;
+        btnSubtract.Click += btnSubtract_Click;
         // 
-        // button14
+        // btnAdd
         // 
-        button14.BackColor = SystemColors.ActiveCaptionText;
-        button14.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button14.ForeColor = Color.Yellow;
-        button14.Location = new Point(198, 142);
-        button14.Name = "button14";
-        button14.Size = new Size(49, 70);
-        button14.TabIndex = 15;
-        button14.Text = "+";
-        button14.UseVisualStyleBackColor = false;
+        btnAdd.BackColor = SystemColors.ActiveCaptionText;
+        btnAdd.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnAdd.ForeColor = Color.Yellow;
+        btnAdd.Location = new Point(198, 218);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new Size(49, 146);
+        btnAdd.TabIndex = 15;
+        btnAdd.Text = "+";
+        btnAdd.UseVisualStyleBackColor = false;
+        btnAdd.Click += btnAdd_Click;
         // 
         // btn0
         // 
@@ -250,94 +263,86 @@ partial class Form1
         btn0.TabIndex = 17;
         btn0.Text = "0";
         btn0.UseVisualStyleBackColor = false;
+        btn0.Click += btn0_Click;
         // 
-        // button17
+        // btnDecimalPoint
         // 
-        button17.BackColor = SystemColors.ActiveCaptionText;
-        button17.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button17.ForeColor = Color.Yellow;
-        button17.Location = new Point(143, 446);
-        button17.Name = "button17";
-        button17.Size = new Size(49, 70);
-        button17.TabIndex = 18;
-        button17.Text = ",";
-        button17.UseVisualStyleBackColor = false;
+        btnDecimalPoint.BackColor = SystemColors.ActiveCaptionText;
+        btnDecimalPoint.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnDecimalPoint.ForeColor = Color.Yellow;
+        btnDecimalPoint.Location = new Point(143, 446);
+        btnDecimalPoint.Name = "btnDecimalPoint";
+        btnDecimalPoint.Size = new Size(49, 70);
+        btnDecimalPoint.TabIndex = 18;
+        btnDecimalPoint.Text = ".";
+        btnDecimalPoint.UseVisualStyleBackColor = false;
+        btnDecimalPoint.Click += btnDecimalPoint_Click;
         // 
-        // button15
+        // btnSquareRoot
         // 
-        button15.BackColor = SystemColors.ActiveCaptionText;
-        button15.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button15.ForeColor = Color.Yellow;
-        button15.Location = new Point(198, 294);
-        button15.Name = "button15";
-        button15.Size = new Size(49, 70);
-        button15.TabIndex = 19;
-        button15.Text = "-";
-        button15.UseVisualStyleBackColor = false;
+        btnSquareRoot.BackColor = SystemColors.ActiveCaptionText;
+        btnSquareRoot.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnSquareRoot.ForeColor = Color.Yellow;
+        btnSquareRoot.Location = new Point(198, 142);
+        btnSquareRoot.Name = "btnSquareRoot";
+        btnSquareRoot.Size = new Size(49, 70);
+        btnSquareRoot.TabIndex = 20;
+        btnSquareRoot.Text = "√";
+        btnSquareRoot.UseVisualStyleBackColor = false;
+        btnSquareRoot.Click += btnSquareRoot_Click;
         // 
-        // button18
+        // btnExponent
         // 
-        button18.BackColor = SystemColors.ActiveCaptionText;
-        button18.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button18.ForeColor = Color.Yellow;
-        button18.Location = new Point(198, 218);
-        button18.Name = "button18";
-        button18.Size = new Size(49, 70);
-        button18.TabIndex = 20;
-        button18.Text = "√";
-        button18.UseVisualStyleBackColor = false;
+        btnExponent.BackColor = SystemColors.ActiveCaptionText;
+        btnExponent.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnExponent.ForeColor = Color.Yellow;
+        btnExponent.Location = new Point(33, 66);
+        btnExponent.Name = "btnExponent";
+        btnExponent.Size = new Size(104, 70);
+        btnExponent.TabIndex = 21;
+        btnExponent.Text = "x²";
+        btnExponent.UseVisualStyleBackColor = false;
+        btnExponent.Click += btnExponent_Click;
         // 
-        // button19
+        // btnEquals
         // 
-        button19.BackColor = SystemColors.ActiveCaptionText;
-        button19.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button19.ForeColor = Color.Yellow;
-        button19.Location = new Point(33, 66);
-        button19.Name = "button19";
-        button19.Size = new Size(104, 70);
-        button19.TabIndex = 21;
-        button19.Text = "x²";
-        button19.UseVisualStyleBackColor = false;
-        // 
-        // button20
-        // 
-        button20.BackColor = SystemColors.ActiveCaptionText;
-        button20.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        button20.ForeColor = Color.Yellow;
-        button20.Location = new Point(198, 370);
-        button20.Name = "button20";
-        button20.Size = new Size(49, 146);
-        button20.TabIndex = 22;
-        button20.Text = "=";
-        button20.UseVisualStyleBackColor = false;
+        btnEquals.BackColor = SystemColors.ActiveCaptionText;
+        btnEquals.Font = new Font("Lucida Console", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        btnEquals.ForeColor = Color.Yellow;
+        btnEquals.Location = new Point(198, 370);
+        btnEquals.Name = "btnEquals";
+        btnEquals.Size = new Size(49, 146);
+        btnEquals.TabIndex = 22;
+        btnEquals.Text = "=";
+        btnEquals.UseVisualStyleBackColor = false;
+        btnEquals.Click += btnEquals_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(12F, 30F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(284, 539);
-        Controls.Add(button20);
-        Controls.Add(button19);
-        Controls.Add(button18);
-        Controls.Add(button15);
-        Controls.Add(button17);
+        Controls.Add(btnEquals);
+        Controls.Add(btnExponent);
+        Controls.Add(btnSquareRoot);
+        Controls.Add(btnDecimalPoint);
         Controls.Add(btn0);
-        Controls.Add(button14);
-        Controls.Add(button13);
-        Controls.Add(button12);
-        Controls.Add(button11);
-        Controls.Add(button10);
-        Controls.Add(button9);
-        Controls.Add(button8);
-        Controls.Add(button7);
-        Controls.Add(button6);
-        Controls.Add(button5);
-        Controls.Add(button4);
-        Controls.Add(button3);
-        Controls.Add(button2);
-        Controls.Add(button1);
+        Controls.Add(btnAdd);
+        Controls.Add(btnSubtract);
+        Controls.Add(btnMultiply);
+        Controls.Add(btnDivide);
+        Controls.Add(btn8);
+        Controls.Add(btn9);
+        Controls.Add(btn7);
+        Controls.Add(btn6);
+        Controls.Add(btn5);
+        Controls.Add(btn4);
+        Controls.Add(btnClear);
+        Controls.Add(btn3);
+        Controls.Add(btn2);
+        Controls.Add(btn1);
         Controls.Add(label1);
-        Controls.Add(textBox1);
+        Controls.Add(txtDisplay);
         Name = "Form1";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Calculadora";
@@ -347,26 +352,25 @@ partial class Form1
 
     #endregion
 
-    private TextBox textBox1;
+    private TextBox txtDisplay;
     private Label label1;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
-    private Button button10;
-    private Button button11;
-    private Button button12;
-    private Button button13;
-    private Button button14;
+    private Button btn1;
+    private Button btn2;
+    private Button btn3;
+    private Button btnClear;
+    private Button btn4;
+    private Button btn5;
+    private Button btn6;
+    private Button btn7;
+    private Button btn9;
+    private Button btn8;
+    private Button btnDivide;
+    private Button btnMultiply;
+    private Button btnSubtract;
+    private Button btnAdd;
     private Button btn0;
-    private Button button17;
-    private Button button15;
-    private Button button18;
-    private Button button19;
-    private Button button20;
+    private Button btnDecimalPoint;
+    private Button btnSquareRoot;
+    private Button btnExponent;
+    private Button btnEquals;
 }

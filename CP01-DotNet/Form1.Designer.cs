@@ -53,6 +53,8 @@ partial class Form1
         // 
         // txtDisplay
         // 
+        txtDisplay.BackColor = SystemColors.MenuHighlight;
+        txtDisplay.ForeColor = Color.Yellow;
         txtDisplay.Location = new Point(33, 12);
         txtDisplay.Name = "txtDisplay";
         txtDisplay.ReadOnly = true;
@@ -321,6 +323,7 @@ partial class Form1
         // 
         AutoScaleDimensions = new SizeF(12F, 30F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = Color.DarkSlateGray;
         ClientSize = new Size(284, 539);
         Controls.Add(btnEquals);
         Controls.Add(btnExponent);

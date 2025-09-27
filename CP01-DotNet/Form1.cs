@@ -83,6 +83,10 @@ public partial class Form1 : Form
 
     private void btnExponent_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.Exponent;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
@@ -90,6 +94,10 @@ public partial class Form1 : Form
 
     private void btnDivide_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.Divide;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
@@ -97,6 +105,10 @@ public partial class Form1 : Form
 
     private void btnMultiply_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.Multiply;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
@@ -104,6 +116,10 @@ public partial class Form1 : Form
 
     private void btnSubtract_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.Subtract;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
@@ -111,6 +127,10 @@ public partial class Form1 : Form
 
     private void btnSquareRoot_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.SquareRoot;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
@@ -118,6 +138,10 @@ public partial class Form1 : Form
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        {
+            return;
+        }
         operationSelected = Operation.Add;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";

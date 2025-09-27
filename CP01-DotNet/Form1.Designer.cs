@@ -29,7 +29,7 @@ partial class Form1
     private void InitializeComponent()
     {
         txtDisplay = new TextBox();
-        label1 = new Label();
+        lblOperation = new Label();
         btn1 = new Button();
         btn2 = new Button();
         btn3 = new Button();
@@ -63,16 +63,15 @@ partial class Form1
         txtDisplay.TextAlign = HorizontalAlignment.Right;
         txtDisplay.TextChanged += textBox1_TextChanged;
         // 
-        // label1
+        // lblOperation
         // 
-        label1.AutoSize = true;
-        label1.BackColor = SystemColors.Highlight;
-        label1.ForeColor = Color.Yellow;
-        label1.Location = new Point(33, 15);
-        label1.Name = "label1";
-        label1.Size = new Size(68, 30);
-        label1.TabIndex = 1;
-        label1.Text = "label1";
+        lblOperation.AutoSize = true;
+        lblOperation.BackColor = SystemColors.Highlight;
+        lblOperation.ForeColor = Color.Yellow;
+        lblOperation.Location = new Point(33, 15);
+        lblOperation.Name = "lblOperation";
+        lblOperation.Size = new Size(0, 30);
+        lblOperation.TabIndex = 1;
         // 
         // btn1
         // 
@@ -346,7 +345,7 @@ partial class Form1
         Controls.Add(btn3);
         Controls.Add(btn2);
         Controls.Add(btn1);
-        Controls.Add(label1);
+        Controls.Add(lblOperation);
         Controls.Add(txtDisplay);
         Name = "Form1";
         StartPosition = FormStartPosition.CenterScreen;
@@ -358,7 +357,7 @@ partial class Form1
     #endregion
 
     private TextBox txtDisplay;
-    private Label label1;
+    private Label lblOperation;
     private Button btn1;
     private Button btn2;
     private Button btn3;

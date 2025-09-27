@@ -1,10 +1,10 @@
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace CP01_DotNet;
 
 public partial class Form1 : Form
 {
-    private Operation operationSelected{ get; set; }
+    private Operation operationSelected { get; set; }
     private float Result { get; set; }
     private float Value { get; set; }
     private enum Operation
@@ -79,6 +79,7 @@ public partial class Form1 : Form
     private void btnClear_Click(object sender, EventArgs e)
     {
         txtDisplay.Text = "";
+        lblOperation.Text = "";
     }
 
     private void btnExponent_Click(object sender, EventArgs e)
@@ -90,6 +91,7 @@ public partial class Form1 : Form
         operationSelected = Operation.Exponent;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "x²";
     }
 
     private void btnDivide_Click(object sender, EventArgs e)
@@ -101,6 +103,7 @@ public partial class Form1 : Form
         operationSelected = Operation.Divide;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "/";
     }
 
     private void btnMultiply_Click(object sender, EventArgs e)
@@ -112,6 +115,7 @@ public partial class Form1 : Form
         operationSelected = Operation.Multiply;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "x";
     }
 
     private void btnSubtract_Click(object sender, EventArgs e)
@@ -123,6 +127,7 @@ public partial class Form1 : Form
         operationSelected = Operation.Subtract;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "-";
     }
 
     private void btnSquareRoot_Click(object sender, EventArgs e)
@@ -134,6 +139,7 @@ public partial class Form1 : Form
         operationSelected = Operation.SquareRoot;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "√";
     }
 
     private void btnAdd_Click(object sender, EventArgs e)
@@ -145,17 +151,18 @@ public partial class Form1 : Form
         operationSelected = Operation.Add;
         Value = Convert.ToSingle(txtDisplay.Text);
         txtDisplay.Text = "";
+        lblOperation.Text = "+";
     }
 
     private void btnDecimalPoint_Click(object sender, EventArgs e)
     {
         if (!txtDisplay.Text.Contains('.'))
-        { 
+        {
             if (String.IsNullOrEmpty(txtDisplay.Text))
-            txtDisplay.Text += "0.";
-        else
+                txtDisplay.Text += "0.";
+            else
                 txtDisplay.Text += ".";
-        } 
+        }
     }
 
     private void btnEquals_Click(object sender, EventArgs e)
@@ -163,7 +170,7 @@ public partial class Form1 : Form
         switch (operationSelected)
         {
             case Operation.Add:
-                Result = Value + Convert.ToSingle(txtDisplay.Text); 
+                Result = Value + Convert.ToSingle(txtDisplay.Text);
                 break;
             case Operation.Subtract:
                 Result = Value - Convert.ToSingle(txtDisplay.Text);
@@ -182,5 +189,10 @@ public partial class Form1 : Form
                 break;
         }
         txtDisplay.Text = Result.ToString();
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+
     }
 }

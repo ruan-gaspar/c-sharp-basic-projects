@@ -2,6 +2,16 @@ namespace CP01_DotNet;
 
 public partial class Form1 : Form
 {
+    private Operation operationSelected{ get; set; }
+    private enum Operation
+    {
+        Add,
+        Subtract,
+        Multiply,
+        Divide,
+        Exponent,
+        SquareRoot
+    }
     public Form1()
     {
         InitializeComponent();
@@ -74,17 +84,20 @@ public partial class Form1 : Form
 
     private void btnDivide_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.Divide;
+        txtDisplay.Text += "";
     }
 
     private void btnMultiply_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.Multiply;
+        txtDisplay.Text += "";
     }
 
     private void btnSubtract_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.Subtract;
+        txtDisplay.Text += "";
     }
 
     private void btnSquareRoot_Click(object sender, EventArgs e)
@@ -94,12 +107,13 @@ public partial class Form1 : Form
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
-
+        operationSelected = Operation.Add;
+        txtDisplay.Text += "";
     }
 
     private void btnDecimalPoint_Click(object sender, EventArgs e)
     {
-
+        
     }
 
     private void btnEquals_Click(object sender, EventArgs e)

@@ -5,8 +5,8 @@
     public partial class Form1 : Form
     {
         private Operation operationSelected { get; set; } = Operation.None;
-        private float Result { get; set; }
-        private float Value { get; set; }
+        private double Result { get; set; }
+        private double Value { get; set; }
         private enum Operation
         {
             None,
@@ -21,7 +21,7 @@
 
         private void setOperation(Operation op, string displaySymbol)
         { 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
         
                 return;
             if (waitForNewNumber)
@@ -75,7 +75,7 @@
         {
             setOperation(Operation.Exponent, "x²");
 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -89,7 +89,7 @@
         {
             setOperation(Operation.Divide, "/");
 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -103,7 +103,7 @@
         {
             setOperation(Operation.Multiply, "x");
 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -117,7 +117,7 @@
         {
             setOperation(Operation.Subtract, "-");
 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -130,7 +130,7 @@
         private void btnSquareRoot_Click(object sender, EventArgs e)
         {
             setOperation(Operation.SquareRoot, "√");
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -144,7 +144,7 @@
         {
             setOperation(Operation.Add, "+");
 
-            if (!float.TryParse(txtDisplay.Text, out float number))
+            if (!double.TryParse(txtDisplay.Text, out double number))
             {
                 return;
             }
@@ -173,7 +173,7 @@
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            if (!float.TryParse(txtDisplay.Text, out float currentNumber))
+            if (!double.TryParse(txtDisplay.Text, out double currentNumber))
                 return;
 
             switch (operationSelected)
@@ -191,10 +191,10 @@
                     Result = Value / currentNumber;
                     break;
                 case Operation.Exponent:
-                    Result = MathF.Pow(Value, currentNumber);
+                    Result = Math.Pow(Value, currentNumber);
                     break;
                 case Operation.SquareRoot:
-                    Result = MathF.Sqrt(currentNumber);
+                    Result = Math.Sqrt(currentNumber);
                     break;
             }
             txtDisplay.Text = Result.ToString();

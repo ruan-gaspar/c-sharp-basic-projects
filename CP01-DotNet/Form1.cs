@@ -4,11 +4,12 @@ namespace CP01_DotNet;
 
 public partial class Form1 : Form
 {
-    private Operation operationSelected { get; set; }
+    private Operation operationSelected { get; set; } = Operation.None;
     private float Result { get; set; }
     private float Value { get; set; }
     private enum Operation
     {
+        None,
         Add,
         Subtract,
         Multiply,
@@ -16,6 +17,23 @@ public partial class Form1 : Form
         Exponent,
         SquareRoot
     }
+    private bool waitForNewNumber = false;
+
+    private void setOperation(Operation op, string displaySymbol)
+    { 
+        if (!float.TryParse(txtDisplay.Text, out float number))
+        
+            return;
+        if (waitForNewNumber)
+            return;
+        operationSelected = op;
+        Value = number;
+        txtDisplay.Text = "";
+        lblOperation.Text = displaySymbol;  
+        waitForNewNumber = true;
+    }
+
+
     public Form1()
     {
         InitializeComponent();
@@ -80,10 +98,15 @@ public partial class Form1 : Form
     {
         txtDisplay.Text = "";
         lblOperation.Text = "";
+        Value = 0;
+        Result = 0;
+        operationSelected = 0;
     }
 
     private void btnExponent_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.Exponent, "x²");
+
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -96,6 +119,8 @@ public partial class Form1 : Form
 
     private void btnDivide_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.Divide, "/");
+
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -108,6 +133,8 @@ public partial class Form1 : Form
 
     private void btnMultiply_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.Multiply, "x");
+
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -120,6 +147,8 @@ public partial class Form1 : Form
 
     private void btnSubtract_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.Subtract, "-");
+
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -132,6 +161,7 @@ public partial class Form1 : Form
 
     private void btnSquareRoot_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.SquareRoot, "√");
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -144,6 +174,8 @@ public partial class Form1 : Form
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        setOperation(Operation.Add, "+");
+
         if (!float.TryParse(txtDisplay.Text, out float number))
         {
             return;
@@ -167,29 +199,35 @@ public partial class Form1 : Form
 
     private void btnEquals_Click(object sender, EventArgs e)
     {
+        if (!float.TryParse(txtDisplay.Text, out float currentNumber))
+            return;
+
         switch (operationSelected)
         {
             case Operation.Add:
-                Result = Value + Convert.ToSingle(txtDisplay.Text);
+                Result = Value + currentNumber;
                 break;
             case Operation.Subtract:
-                Result = Value - Convert.ToSingle(txtDisplay.Text);
+                Result = Value - currentNumber;
                 break;
             case Operation.Multiply:
-                Result = Value * Convert.ToSingle(txtDisplay.Text);
+                Result = Value * currentNumber;
                 break;
             case Operation.Divide:
-                Result = Value / Convert.ToSingle(txtDisplay.Text);
+                Result = Value / currentNumber;
                 break;
             case Operation.Exponent:
-                Result = MathF.Pow(Value, Convert.ToSingle(txtDisplay.Text));
+                Result = MathF.Pow(Value, currentNumber);
                 break;
             case Operation.SquareRoot:
-                Result = MathF.Sqrt(Convert.ToSingle(txtDisplay.Text));
+                Result = MathF.Sqrt(currentNumber);
                 break;
         }
         txtDisplay.Text = Result.ToString();
         lblOperation.Text = "=";
+        operationSelected = Operation.None;
+        waitForNewNumber = false;
+        Value = Result;
     }
 
     private void Form1_Load(object sender, EventArgs e)

@@ -277,7 +277,7 @@ partial class Form1
         btnDecimalPoint.Name = "btnDecimalPoint";
         btnDecimalPoint.Size = new Size(49, 70);
         btnDecimalPoint.TabIndex = 18;
-        btnDecimalPoint.Text = ".";
+        btnDecimalPoint.Text = ",";
         btnDecimalPoint.UseVisualStyleBackColor = false;
         btnDecimalPoint.Click += btnDecimalPoint_Click;
         // 

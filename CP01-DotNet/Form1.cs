@@ -51,8 +51,14 @@
         private void btn7_Click(object sender, EventArgs e) => AppendDigit("7");
         private void btn8_Click(object sender, EventArgs e) => AppendDigit("8");
         private void btn9_Click(object sender, EventArgs e) => AppendDigit("9");
+        private void btnAdd_Click(object sender, EventArgs e) => setOperation(Operation.Add, "+");
+        private void btnSubtract_Click(object sender, EventArgs e) => setOperation(Operation.Subtract, "-");
+        private void btnMultiply_Click(object sender, EventArgs e) => setOperation(Operation.Multiply, "x");
+        private void btnDivide_Click(object sender, EventArgs e) => setOperation(Operation.Divide, "/");
+        private void btnExponent_Click(object sender, EventArgs e) => setOperation(Operation.Exponent, "x²");
+        private void btnSquareRoot_Click(object sender, EventArgs e) => setOperation(Operation.SquareRoot, "√");
 
-        public Form1()
+    public Form1()
         {
             InitializeComponent();
         }
@@ -71,103 +77,20 @@
             operationSelected = 0;
         }
 
-        private void btnExponent_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.Exponent, "x²");
-
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.Exponent;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "x²";
-        }
-
-        private void btnDivide_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.Divide, "/");
-
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.Divide;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "/";
-        }
-
-        private void btnMultiply_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.Multiply, "x");
-
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.Multiply;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "x";
-        }
-
-        private void btnSubtract_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.Subtract, "-");
-
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.Subtract;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "-";
-        }
-
-        private void btnSquareRoot_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.SquareRoot, "√");
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.SquareRoot;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "√";
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            setOperation(Operation.Add, "+");
-
-            if (!double.TryParse(txtDisplay.Text, out double number))
-            {
-                return;
-            }
-            operationSelected = Operation.Add;
-            Value = Convert.ToSingle(txtDisplay.Text);
-            txtDisplay.Text = "";
-            lblOperation.Text = "+";
-        }
-
-        private void btnDecimalPoint_Click(object sender, EventArgs e)
+        private void btnDecimalPoint_Click(object sender, EventArgs e) // Decimal point alterado para comma no formato BR
         {
             if (waitForNewNumber)
             {
-                txtDisplay.Text = "0.";
+                txtDisplay.Text = "0,";
                 waitForNewNumber = false;
                 return;
             }
-            if (!txtDisplay.Text.Contains('.'))
+            if (!txtDisplay.Text.Contains(','))
             {
                 if (String.IsNullOrEmpty(txtDisplay.Text))
-                    txtDisplay.Text += "0.";
+                    txtDisplay.Text += "0,";
                 else
-                    txtDisplay.Text += ".";
+                    txtDisplay.Text += ",";
             }
         }
 
@@ -209,3 +132,4 @@
 
         }
     }
+

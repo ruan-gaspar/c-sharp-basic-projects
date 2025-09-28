@@ -52,7 +52,7 @@ namespace ConsoleAgeCalculatorApp
                 Console.WriteLine("Você é maior de idade e pode tirar a carteira de habilitação.");
             else
                 Console.WriteLine("Você ainda é menor de idade e não pode tirar a carteira de habilitação.");
-            Console.WriteLine("Desenvolvido por Ruan Nunes Gaspar (RM 559567) e Rodrigo Paes Morales 2TDSPA " +
+            Console.WriteLine("Desenvolvido por Ruan Nunes Gaspar (RM 559567) e Rodrigo Paes Morales (RM 560209) 2TDSPA " +
                               "FIAP Paulista São Paulo/SP");
         }
     }

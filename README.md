@@ -1,5 +1,8 @@
 ﻿Ruan Nunes Gaspar RM 559567 2TDSPA 
 Rodrigo Paes Morales RM 560209 2TDSPA
+
+## Comando para publicar o projeto em um único arquivo executável:
+
 ``
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true /p:PublishTrimmed=false
 ``

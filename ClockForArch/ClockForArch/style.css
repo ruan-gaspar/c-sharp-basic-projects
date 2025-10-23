@@ -17,3 +17,28 @@ label {
     color: #FFD700;
     background-color: transparent;
 }
+label.small-label {
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFD700;
+    background-color: transparent;
+}
+
+button {
+    background-color: #1A1A1A;
+    color: #FFD700;
+    font-weight: bold;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+button:hover {
+    background-color: #FFD700;
+    color: #1A1A1A;
+}
+
+label.timer-done {
+    color: #FF4500; /* vermelho laranja para indicar fim */
+    font-weight: bold;
+}

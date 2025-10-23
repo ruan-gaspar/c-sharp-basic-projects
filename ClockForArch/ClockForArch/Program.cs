@@ -7,7 +7,7 @@ using Window = Gtk.Window;
 
 class Program
 { 
-    static Label clockLabel;
+    static Label clockLabel = null!;
     static System.Timers.Timer timer = null!;
 
     public static void Main(string[] args)
@@ -21,20 +21,25 @@ class Program
         Window window = new Window("Cyberpunk Timer"); // Título não aparece se houver a função
                                                        // window.Decorated = false
         // window.Decorated = false;
+        window.StyleContext.AddClass("clock-label");
+        //window.AppPaintable = true;
+        window.Visual = window.Screen.RgbaVisual;
         window.SetDefaultSize(400, 180);
-        window.ModifyBg(StateType.Normal, new Gdk.Color(43, 0, 59));
+        // window.ModifyBg(StateType.Normal, new Gdk.Color(43, 0, 59));
         window.DeleteEvent += delegate
         {
             timer.Stop();
             Application.Quit();
         };
-
-        VBox vbox = new VBox(false, 0);
+        Box vbox = new Box(Orientation.Vertical, 0);
+        //VBox vbox = new VBox(false, 0);
         window.Add(vbox);
         
         clockLabel = new Label();
+        clockLabel.StyleContext.AddClass("clock-label");
         clockLabel.UseMarkup = true;
-        clockLabel.SetAlignment(0.5f, 0.5f);
+        clockLabel.Halign = Align.Center;
+        //clockLabel.SetAlignment(0.5f, 0.5f);
         
         vbox.PackStart(clockLabel, true, true, 0);
         
@@ -46,12 +51,11 @@ class Program
         Application.Run();
     }
 
-    static void UpdateClock(object sender, System.Timers.ElapsedEventArgs e)
+    static void UpdateClock(object? sender, System.Timers.ElapsedEventArgs e)
     {
         Application.Invoke(delegate
         {
-            clockLabel.Markup = "<span font='38' foreground='#30FFEA' background='#1D0029' weight='bold' " +
-                                "letter_spacing='3000'>" + DateTime.Now.ToString("HH:mm:ss") + "</span>";
+            clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         });
     }
 }

@@ -1,5 +1,19 @@
 window {
-    background-color: #1D0029;
-    border-radius: 20px;
-    border: 2px solid #30FFEA;
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+}
+GtkWindow.clock-label {
+    background-color: rgba(54, 69, 79, 0.4);
+}
+label {
+    font-weight: bold;
+    font-size: 38px;
+    color: #FFD700;
+    background-color: transparent;
+}
+.clock-label {
+    font-weight: bold;
+    font-size: 38px;
+    color: #FFD700;
+    background-color: transparent;
 }

@@ -40,11 +40,12 @@ class Program
         Application.Run();
     }
 
-    static void UpdateClock(object sender, ElapsedEventArgs e)
+    static void UpdateClock(object sender, System.Timers.ElapsedEventArgs e)
     {
         Application.Invoke(delegate
         {
-            clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+            clockLabel.Markup = "<span font='38' foreground='#30FFEA' background='#1D0029' weight='bold' " +
+                                "letter_spacing='3000'>" + DateTime.Now.ToString("HH:mm:ss") + "</span>";
         });
     }
 }

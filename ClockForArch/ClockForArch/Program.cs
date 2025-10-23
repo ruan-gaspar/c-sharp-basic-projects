@@ -18,7 +18,9 @@ class Program
         cssProvider.LoadFromPath("style.css");
         StyleContext.AddProviderForScreen(GdkScreen.Default, cssProvider, 800);
         
-        Window window = new Window("Cyberpunk Timer");
+        Window window = new Window("Cyberpunk Timer"); // Título não aparece se houver a função
+                                                       // window.Decorated = false
+        // window.Decorated = false;
         window.SetDefaultSize(400, 180);
         window.ModifyBg(StateType.Normal, new Gdk.Color(43, 0, 59));
         window.DeleteEvent += delegate
@@ -29,8 +31,6 @@ class Program
 
         VBox vbox = new VBox(false, 0);
         window.Add(vbox);
-        
-        
         
         clockLabel = new Label();
         clockLabel.UseMarkup = true;

@@ -20,11 +20,19 @@ class Program
             timer.Stop();
             Application.Quit();
         };
-        clockLabel = new Label();
-        clockLabel.SetAlignment(0.5f, 0.5f);
-        window.Add(clockLabel);
 
-        timer = new Timer(1000);
+        VBox vbox = new VBox(false, 0);
+        window.Add(vbox);
+        
+        
+        
+        clockLabel = new Label();
+        clockLabel.UseMarkup = true;
+        clockLabel.SetAlignment(0.5f, 0.5f);
+        
+        vbox.PackStart(clockLabel, true, true, 0);
+        
+        timer = new System.Timers.Timer(1000);
         timer.Elapsed += UpdateClock;
         timer.Start();
         

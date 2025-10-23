@@ -14,4 +14,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="GtkSharp" Version="3.24.24.95" />
+    </ItemGroup>
+
 </Project>

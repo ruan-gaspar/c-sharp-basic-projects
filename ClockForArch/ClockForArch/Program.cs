@@ -1,17 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using Gtk;
 using System.Timers;
-using Timer = System.Timers.Timer;
+using Gtk;
+using GdkScreen = Gdk.Screen;
+using Window = Gtk.Window;
 
 class Program
 { 
     static Label clockLabel;
-    static System.Timers.Timer timer;
+    static System.Timers.Timer timer = null!;
 
     public static void Main(string[] args)
     {
         Application.Init();
+        
+        CssProvider cssProvider = new CssProvider();
+        cssProvider.LoadFromPath("style.css");
+        StyleContext.AddProviderForScreen(GdkScreen.Default, cssProvider, 800);
         
         Window window = new Window("Cyberpunk Timer");
         window.SetDefaultSize(400, 180);

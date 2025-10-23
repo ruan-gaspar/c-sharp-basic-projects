@@ -13,8 +13,9 @@ class Program
     {
         Application.Init();
         
-        Window window = new Window("Relógio GTK#");
-        window.SetDefaultSize(250, 100);
+        Window window = new Window("Cyberpunk Timer");
+        window.SetDefaultSize(400, 180);
+        window.ModifyBg(StateType.Normal, new Gdk.Color(43, 0, 59));
         window.DeleteEvent += delegate
         {
             timer.Stop();

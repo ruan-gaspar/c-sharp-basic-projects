@@ -17,7 +17,12 @@ namespace RegistroOcorrencias.Controllers
         {
             return View();
         }
-
+        
+        public IActionResult About()
+        {
+            return View(); // Isso vai buscar Views/Home/About.cshtml
+        }
+        
         public IActionResult Privacy()
         {
             return View();

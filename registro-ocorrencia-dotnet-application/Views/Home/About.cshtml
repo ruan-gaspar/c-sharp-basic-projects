@@ -1,17 +1,93 @@
 @{
     ViewData["Title"] = "About";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_Layout";
 }
 
 <div class="container mt-4">
-<h2>Sobre o Projeto</h2>
-<p>
-    Este projeto é uma aplicação de registro de ocorrências, 
-    criada como exemplo de aplicação web usando ASP.NET Core MVC.
-</p>
-<p>
-    <strong>Objetivo:</strong> Demonstrar CRUD completo, 
-    organização de models, controllers, views e boas práticas de UX/UI.
-</p>
-<p>
-<strong>Tecnologias:</
+    <h2>Sobre o Projeto - Registro de Ocorrências</h2>
+
+    <p>
+        Este projeto é uma aplicação web de <strong>registro de ocorrências</strong>, criada como exemplo de CRUD completo utilizando <strong>ASP.NET Core MVC</strong> e boas práticas de desenvolvimento.
+        A interface foi planejada com cores e estilos inspirados na Polícia Civil: fundo preto, textos amarelos e títulos em vermelho, para melhor contraste e legibilidade.
+    </p>
+
+    <h3>Funcionalidades</h3>
+    <ul>
+        <li>Gerenciar ocorrências (CRUD completo)</li>
+        <li>Gerenciar agentes responsáveis</li>
+        <li>Gerenciar delegacias</li>
+        <li>Gerenciar terceiros e noticiantes</li>
+        <li>Página About estática para exibição de informações do projeto</li>
+    </ul>
+
+    <h3>Tecnologias Utilizadas</h3>
+    <ul>
+        <li><strong>ASP.NET Core MVC</strong>: Framework web principal</li>
+        <li><strong>C#</strong>: Linguagem de programação</li>
+        <li><strong>Entity Framework Core</strong>: ORM para gerenciamento do banco de dados</li>
+        <li><strong>Bootstrap 5</strong>: Framework CSS para estilização e responsividade</li>
+        <li><strong>HTML5 / CSS3</strong>: Estrutura e estilo das páginas</li>
+    </ul>
+
+    <h3>Estrutura do Projeto</h3>
+    <pre style="background-color:#111; color:#FFD700; padding:10px; border-radius:5px;">
+RegistroOcorrencias/
+├─ Controllers/
+├─ Models/
+├─ Views/
+│  ├─ Shared/_Layout.cshtml
+│  ├─ Home/Index.cshtml
+│  └─ Home/About.cshtml
+├─ wwwroot/
+├─ Data/ApplicationDbContext.cs
+└─ Program.cs / Startup.cs
+    </pre>
+
+    <h3>Navegação</h3>
+    <p>
+        O menu do cabeçalho permite acessar rapidamente todas as áreas da aplicação: Ocorrências, Agentes, Delegacias e About.  
+        Todas as páginas compartilham um <strong>layout consistente</strong> e cores padronizadas.
+    </p>
+
+    <h3>Como Executar</h3>
+    <ol>
+        <li>Clone o repositório</li>
+        <li>Restaure os pacotes com <code>dotnet restore</code></li>
+        <li>Execute a aplicação com <code>dotnet run</code></li>
+        <li>Acesse <code>https://localhost:5001</code> no navegador</li>
+    </ol>
+
+    <h3>Autor</h3>
+    <p>Ruan Gaspar 
+        RM:559567 
+        2TDSPA</p>
+</div>
+
+<style>
+    /* Títulos */
+    h2, h3 {
+        color: #FF4500; /* vermelho laranja */
+    }
+
+    /* Parágrafos e listas */
+    p, li {
+        color: #FFD700; /* amarelo */
+    }
+
+    /* Código e blocos de pre */
+    pre {
+        font-family: Consolas, monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+    }
+
+    /* Links */
+    a {
+        color: #FFA500;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: #FF6347;
+    }
+</style>

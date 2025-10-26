@@ -84,6 +84,25 @@ RegistroOcorrencias/
 
 O menu do cabeçalho (`_Layout.cshtml`) contém botões estilizados que direcionam para cada uma dessas páginas, mantendo um layout consistente e cores personalizadas (fundo preto, letras amarelas, títulos em vermelho).
 
+## Exemplos de Navegação
+Navegação Geral
+
+![Demonstração](./wwwroot/Images/navegacao.gif)
+
+
+Registrando uma ocorrência
+
+![Demonstração](./wwwroot/Images/ocorrencia02.gif)
+
+
+Deletando uma ocorrência
+
+![Demonstração](./wwwroot/Images/deleting.gif)
+
+Detalhes da ocorrência
+
+![Demonstração](./wwwroot/Images/ocorrencia01.gif)
+
 
 ## Estilo e UX/UI
 

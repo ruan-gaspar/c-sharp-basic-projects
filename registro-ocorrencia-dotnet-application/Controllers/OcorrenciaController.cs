@@ -86,7 +86,7 @@ namespace RegistroOcorrencias.Controllers
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var ocorrencia = await _context.Ocorrencias.FindAsync(id);
-            if (ocorrencia != null)
+            if (ocorrencia != null) 
             {
                 _context.Ocorrencias.Remove(ocorrencia);
                 await _context.SaveChangesAsync();

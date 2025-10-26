@@ -1,0 +1,44 @@
+@model RegistroOcorrencias.Models.Terceiros
+@{
+    ViewData["Title"] = "Editar Terceiro";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Editar Terceiro</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label asp-for="NomeCompleto" class="form-label text-white"></label>
+            <input asp-for="NomeCompleto" class="form-control"/>
+            <span asp-validation-for="NomeCompleto" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cpf" class="form-label text-white"></label>
+            <input asp-for="Cpf" class="form-control"/>
+            <span asp-validation-for="Cpf" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Rg" class="form-label text-white"></label>
+            <input asp-for="Rg" class="form-control"/>
+            <span asp-validation-for="Rg" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Endereco" class="form-label text-white"></label>
+            <input asp-for="Endereco" class="form-control"/>
+            <span asp-validation-for="Endereco" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Telefone" class="form-label text-white"></label>
+            <input asp-for="Telefone" class="form-control"/>
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Atualizar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

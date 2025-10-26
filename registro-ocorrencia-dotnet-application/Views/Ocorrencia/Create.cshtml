@@ -1,0 +1,66 @@
+@model RegistroOcorrencias.Models.Ocorrencia
+@{
+    ViewData["Title"] = "Nova Ocorrência";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Nova Ocorrência</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label text-white"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Descricao" class="form-label text-white"></label>
+            <textarea asp-for="Descricao" class="form-control"></textarea>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataRegistro" class="form-label text-white"></label>
+            <input asp-for="DataRegistro" type="date" class="form-control" />
+            <span asp-validation-for="DataRegistro" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NumeroOcorrencia" class="form-label text-white"></label>
+            <input asp-for="NumeroOcorrencia" class="form-control" />
+            <span asp-validation-for="NumeroOcorrencia" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CodigoOcorrencia" class="form-label text-white"></label>
+            <input asp-for="CodigoOcorrencia" class="form-control" />
+            <span asp-validation-for="CodigoOcorrencia" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LocalOcorrencia" class="form-label text-white"></label>
+            <input asp-for="LocalOcorrencia" class="form-control" />
+            <span asp-validation-for="LocalOcorrencia" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StatusConcluido" class="form-label text-white"></label>
+            <select asp-for="StatusConcluido" class="form-select" asp-items="new SelectList(ViewBag.StatusList)">
+            </select>
+            <span asp-validation-for="StatusConcluido" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Categoria" class="form-label text-white"></label>
+            <input asp-for="Categoria" class="form-control" />
+            <span asp-validation-for="Categoria" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

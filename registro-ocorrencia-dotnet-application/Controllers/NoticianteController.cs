@@ -1,45 +1,96 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RegistroOcorrencias.Data;
+using RegistroOcorrencias.Models;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace RegistroOcorrencias.Models
+namespace RegistroOcorrencias.Controllers
 {
-    public class NoticianteController
+    public class NoticianteController : Controller
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        private readonly ApplicationDbContext _context;
 
-        [Required]
-        [Display(Name = "Nome Completo")]
-        public string NomeCompleto { get; set; }
+        public NoticianteController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        [Required]
-        [Display(Name = "CPF")]
-        public string Cpf { get; set; }
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var noticiantes = from n in _context.Noticiantes select n;
 
-        [Required]
-        [Display(Name = "RG")]
-        public string Rg { get; set; }
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                noticiantes = noticiantes.Where(n => n.NomeCompleto.Contains(searchString));
+            }
 
-        [Range(18, 120)]
-        [Display(Name = "Idade")]
-        public int Idade { get; set; }
+            return View(await noticiantes.ToListAsync());
+        }
 
-        [Required]
-        [Display(Name = "Endereço")]
-        public string Endereco { get; set; }
+        public IActionResult Create() => View();
 
-        [Required]
-        [Phone]
-        [Display(Name = "Telefone")]
-        public string Telefone { get; set; }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Noticiante noticiante)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(noticiante);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(noticiante);
+        }
 
-        [Required]
-        [EmailAddress]
-        [Display(Name = "E-mail")]
-        public string Email { get; set; }
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var noticiante = await _context.Noticiantes.FindAsync(id);
+            if (noticiante == null) return NotFound();
+            return View(noticiante);
+        }
 
-        [Required]
-        [Display(Name = "Estado Civil")]
-        public string EstadoCivil { get; set; }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, Noticiante noticiante)
+        {
+            if (id != noticiante.Id) return NotFound();
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(noticiante);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(noticiante);
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var noticiante = await _context.Noticiantes.FindAsync(id);
+            if (noticiante == null) return NotFound();
+            return View(noticiante);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            var noticiante = await _context.Noticiantes.FindAsync(id);
+            if (noticiante != null)
+            {
+                _context.Noticiantes.Remove(noticiante);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var noticiante = await _context.Noticiantes.FindAsync(id);
+            if (noticiante == null) return NotFound();
+            return View(noticiante);
+        }
     }
 }

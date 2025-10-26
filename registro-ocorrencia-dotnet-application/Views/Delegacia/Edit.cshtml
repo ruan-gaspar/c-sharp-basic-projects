@@ -1,0 +1,39 @@
+@model RegistroOcorrencias.Models.Delegacia
+@{
+    ViewData["Title"] = "Editar Delegacia";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Editar Delegacia</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label text-white"></label>
+            <input asp-for="Titulo" class="form-control"/>
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DelegadoResponsavel" class="form-label text-white"></label>
+            <input asp-for="DelegadoResponsavel" class="form-control"/>
+            <span asp-validation-for="DelegadoResponsavel" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Endereco" class="form-label text-white"></label>
+            <input asp-for="Endereco" class="form-control"/>
+            <span asp-validation-for="Endereco" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Telefone" class="form-label text-white"></label>
+            <input asp-for="Telefone" class="form-control"/>
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Atualizar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

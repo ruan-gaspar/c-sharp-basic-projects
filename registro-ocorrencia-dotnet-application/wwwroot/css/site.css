@@ -19,4 +19,44 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #000; /* fundo preto */
+  color: #FFD700; /* texto amarelo */
+}
+
+h2, h3, h4 {
+  color: #FF4500; /* títulos em vermelho laranja, remete a alerta/policia */
+}
+
+.navbar .nav-link:hover {
+  color: #FF6347 !important; /* vermelho suave ao passar o mouse */
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-warning {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+  color: #000;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.table {
+  color: #FFD700; /* tabela com texto amarelo */
+}
+
+.table-dark {
+  background-color: #111;
 }

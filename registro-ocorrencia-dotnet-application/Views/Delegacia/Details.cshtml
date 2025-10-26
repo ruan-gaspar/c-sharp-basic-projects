@@ -1,0 +1,25 @@
+@model RegistroOcorrencias.Models.Delegacia
+@{
+    ViewData["Title"] = "Detalhes da Delegacia";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Detalhes da Delegacia</h2>
+
+    <dl class="row text-white">
+        <dt class="col-sm-3">Título</dt>
+        <dd class="col-sm-9">@Model.Titulo</dd>
+
+        <dt class="col-sm-3">Delegado Responsável</dt>
+        <dd class="col-sm-9">@Model.DelegadoResponsavel</dd>
+
+        <dt class="col-sm-3">Endereço</dt>
+        <dd class="col-sm-9">@Model.Endereco</dd>
+
+        <dt class="col-sm-3">Telefone</dt>
+        <dd class="col-sm-9">@Model.Telefone</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</div>

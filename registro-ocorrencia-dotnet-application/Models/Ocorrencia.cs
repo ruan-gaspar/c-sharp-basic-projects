@@ -4,6 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RegistroOcorrencias.Models
 {
+    public enum StatusOcorrencia
+    {
+        Pendente,
+        EmAndamento,
+        Concluida
+    }
+
     [Table("OCORRENCIA_DOTNET")]
     public class Ocorrencia
     {
@@ -33,8 +40,8 @@ namespace RegistroOcorrencias.Models
         [Display(Name = "Local da Ocorrência")]
         public string LocalOcorrencia { get; set; }
 
-        [Display(Name = "Status Concluído")]
-        public bool StatusConcluido { get; set; }
+        [Display(Name = "Status")]
+        public StatusOcorrencia StatusConcluido { get; set; }
 
         [Required]
         [Display(Name = "Categoria")]

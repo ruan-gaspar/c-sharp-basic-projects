@@ -1,28 +1,96 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RegistroOcorrencias.Data;
+using RegistroOcorrencias.Models;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace RegistroOcorrencias.Models
+namespace RegistroOcorrencias.Controllers
 {
-    public class DelegaciaController
+    public class DelegaciaController : Controller
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        private readonly ApplicationDbContext _context;
 
-        [Required]
-        [Display(Name = "Título da Delegacia")]
-        public string Titulo { get; set; }
+        public DelegaciaController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        [Required]
-        [Display(Name = "Delegado Responsável")]
-        public string DelegadoResponsavel { get; set; }
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var delegacias = from d in _context.Delegacias select d;
 
-        [Required]
-        [Display(Name = "Endereço")]
-        public string Endereco { get; set; }
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                delegacias = delegacias.Where(d => d.Titulo.Contains(searchString));
+            }
 
-        [Required]
-        [Phone]
-        [Display(Name = "Telefone")]
-        public string Telefone { get; set; }
+            return View(await delegacias.ToListAsync());
+        }
+
+        public IActionResult Create() => View();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Delegacia delegacia)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(delegacia);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(delegacia);
+        }
+
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var delegacia = await _context.Delegacias.FindAsync(id);
+            if (delegacia == null) return NotFound();
+            return View(delegacia);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, Delegacia delegacia)
+        {
+            if (id != delegacia.Id) return NotFound();
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(delegacia);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(delegacia);
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var delegacia = await _context.Delegacias.FindAsync(id);
+            if (delegacia == null) return NotFound();
+            return View(delegacia);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            var delegacia = await _context.Delegacias.FindAsync(id);
+            if (delegacia != null)
+            {
+                _context.Delegacias.Remove(delegacia);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var delegacia = await _context.Delegacias.FindAsync(id);
+            if (delegacia == null) return NotFound();
+            return View(delegacia);
+        }
     }
 }

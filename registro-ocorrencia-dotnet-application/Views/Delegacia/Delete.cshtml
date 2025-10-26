@@ -1,0 +1,18 @@
+@model RegistroOcorrencias.Models.Delegacia
+@{
+    ViewData["Title"] = "Excluir Delegacia";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Excluir Delegacia</h2>
+
+    <div class="alert alert-danger">
+        Tem certeza que deseja excluir <strong>@Model.Titulo</strong>?
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id"/>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

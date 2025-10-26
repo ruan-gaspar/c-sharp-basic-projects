@@ -1,36 +1,96 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RegistroOcorrencias.Data;
+using RegistroOcorrencias.Models;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace RegistroOcorrencias.Models
+namespace RegistroOcorrencias.Controllers
 {
-    public class TerceirosController
+    public class TerceirosController : Controller
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        private readonly ApplicationDbContext _context;
 
-        [Required]
-        [Display(Name = "Nome Completo")]
-        public string NomeCompleto { get; set; }
+        public TerceirosController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-        [Required]
-        [Display(Name = "CPF")]
-        public string Cpf { get; set; }
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var terceiros = from t in _context.Terceiros select t;
 
-        [Required]
-        [Display(Name = "RG")]
-        public string Rg { get; set; }
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                terceiros = terceiros.Where(t => t.NomeCompleto.Contains(searchString));
+            }
 
-        [Range(18, 120)]
-        [Display(Name = "Idade")]
-        public int Idade { get; set; }
+            return View(await terceiros.ToListAsync());
+        }
 
-        [Required]
-        [Display(Name = "Endereço")]
-        public string Endereco { get; set; }
+        public IActionResult Create() => View();
 
-        [Required]
-        [Phone]
-        [Display(Name = "Telefone")]
-        public string Telefone { get; set; }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Terceiros terceiro)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(terceiro);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(terceiro);
+        }
+
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var terceiro = await _context.Terceiros.FindAsync(id);
+            if (terceiro == null) return NotFound();
+            return View(terceiro);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, Terceiros terceiro)
+        {
+            if (id != terceiro.Id) return NotFound();
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(terceiro);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(terceiro);
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var terceiro = await _context.Terceiros.FindAsync(id);
+            if (terceiro == null) return NotFound();
+            return View(terceiro);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            var terceiro = await _context.Terceiros.FindAsync(id);
+            if (terceiro != null)
+            {
+                _context.Terceiros.Remove(terceiro);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var terceiro = await _context.Terceiros.FindAsync(id);
+            if (terceiro == null) return NotFound();
+            return View(terceiro);
+        }
     }
 }

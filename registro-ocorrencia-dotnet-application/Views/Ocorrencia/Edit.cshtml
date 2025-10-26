@@ -1,0 +1,22 @@
+@model RegistroOcorrencias.Models.Ocorrencia
+    @{
+    ViewData["Title"] = "Editar Ocorrência";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Editar Ocorrência</h2>
+
+    <form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Mesmos campos de Create.cshtml -->
+    <!-- ... copiar todos os campos de Create.cshtml ... -->
+
+    <button type="submit" class="btn btn-warning">Atualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+    </div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

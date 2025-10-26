@@ -1,0 +1,36 @@
+@model IEnumerable<RegistroOcorrencias.Models.Noticiante>
+@{
+    ViewData["Title"] = "Noticiantes";
+}
+
+<div class="container">
+    <h2 class="text-white mb-4">Noticiantes</h2>
+
+    <a asp-action="Create" class="btn btn-success mb-3">Novo Noticiante</a>
+
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var noticiante in Model)
+        {
+            <tr>
+                <td>@noticiante.NomeCompleto</td>
+                <td>@noticiante.Cpf</td>
+                <td>@noticiante.Telefone</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@noticiante.Id" class="btn btn-info btn-sm">Detalhes</a>
+                    <a asp-action="Edit" asp-route-id="@noticiante.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@noticiante.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -1,8 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5 text-warning">
+    <h1 class="display-4 text-danger text-center mb-4">Sistema de Registro de Ocorrências</h1>
+
+    <p class="lead text-center mb-5">
+        Navegue pelas seções utilizando os botões abaixo. Este sistema permite gerenciar Ocorrências, Noticiantes, Terceiros, Agentes Responsáveis e Delegacias.
+    </p>
+
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="/Ocorrencia" class="btn btn-warning btn-lg">Ocorrências</a>
+        <a href="/Noticiante" class="btn btn-warning btn-lg">Noticiantes</a>
+        <a href="/Terceiros" class="btn btn-warning btn-lg">Terceiros</a>
+        <a href="/AgenteResponsavel" class="btn btn-warning btn-lg">Agentes</a>
+        <a href="/Delegacia" class="btn btn-warning btn-lg">Delegacias</a>
+        <a href="/Home/About" class="btn btn-warning btn-lg">About</a>
+    </div>
 </div>

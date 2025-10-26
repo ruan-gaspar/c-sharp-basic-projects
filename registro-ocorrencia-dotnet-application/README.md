@@ -84,7 +84,6 @@ RegistroOcorrencias/
 
 O menu do cabeçalho (`_Layout.cshtml`) contém botões estilizados que direcionam para cada uma dessas páginas, mantendo um layout consistente e cores personalizadas (fundo preto, letras amarelas, títulos em vermelho).
 
----
 
 ## Estilo e UX/UI
 
@@ -93,13 +92,11 @@ O menu do cabeçalho (`_Layout.cshtml`) contém botões estilizados que direcion
 - **Tabelas**: Texto amarelo com fundo escuro para melhor contraste.
 - **Responsividade**: Layout adaptável a diferentes resoluções usando Bootstrap.
 
----
 
 ## Como Rodar o Projeto
 
 1. Clone o repositório:
-   `
-   git clone <URL_DO_REPOSITORIO>
+   `git clone <URL_DO_REPOSITORIO>
    cd registro-ocorrencia-dotnet-application`
 
 

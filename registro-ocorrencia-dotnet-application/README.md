@@ -119,15 +119,17 @@ Detalhes da ocorrência
    cd registro-ocorrencia-dotnet-application`
 
 
-2. Restaure os pacotes:
+2. Configure o AppSettings.json com id, senha e nome do serviço de banco de dados Oracle.
+
+3. Restaure os pacotes:
 `dotnet restore`
 
  
-3. Execute a aplicação:
+4. Execute a aplicação:
 `dotnet restore`
 
 
-4. Abra o navegador em:
+5. Abra o navegador em:
 `https://localhost:5001`
 
 Contribuição
